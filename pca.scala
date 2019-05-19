@@ -1,4 +1,5 @@
 import org.apache.commons.math3.distribution.MultivariateNormalDistribution
+import org.apache.commons.math3.random.RandomGenerator
 
 object Main extends App {
 
@@ -18,7 +19,7 @@ object Main extends App {
      i <- 0 until rows
      j <- 0 until cols
   }
-    println(s"($i)($j) = ${cov_mat1(i)(j)}")
+    println(s"($i)($j) = ${cov_mat1(i)(j)}");
 
 
   var cov_mat2 = Array.ofDim[Double](rows,cols)
@@ -28,9 +29,16 @@ object Main extends App {
     i <- 0 until rows
     j <- 0 until cols
   }
-    println(s"($i)($j) = ${cov_mat2(i)(j)}")
+    println(s"($i)($j) = ${cov_mat2(i)(j)}");
 
-  var class1_sample = new MultivariateNormalDistribution(mu1, cov_mat1)
+
+  var sample_size = 20
+
+  var mnd1:MultivariateNormalDistribution = new MultivariateNormalDistribution(mu1, cov_mat1)
+  var class1_samples = for (i <- 0 until sample_size) yield mnd1.sample()
+
+  var mnd2:MultivariateNormalDistribution = new MultivariateNormalDistribution(mu2, cov_mat2)
+  var class2_samples = for (i <- 0 until sample_size) yield mnd2.sample()
 
 
 }
