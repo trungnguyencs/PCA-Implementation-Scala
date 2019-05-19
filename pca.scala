@@ -40,5 +40,9 @@ object Main extends App {
   var mnd2:MultivariateNormalDistribution = new MultivariateNormalDistribution(mu2, cov_mat2)
   var class2_samples = for (i <- 0 until sample_size) yield mnd2.sample()
 
+  for( a <- 1 until sample_size) {
+    for(b <- 1 until 3)
+    println(a+", "+b+": " + class2_samples(a)(b))
+  }
 
 }
