@@ -1,0 +1,22 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/pca.scala:1:12: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.commons.math3.distribution.MultivariateNormalDistribution[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/pca.scala:2:12: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.commons.math3.random.RandomGenerator[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/pca.scala:37:12: not found: type MultivariateNormalDistribution[0m
+[0m[[0m[31merror[0m] [0m[0m  var mnd1:MultivariateNormalDistribution = new MultivariateNormalDistribution(mu1, cov_mat1)[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/pca.scala:37:49: not found: type MultivariateNormalDistribution[0m
+[0m[[0m[31merror[0m] [0m[0m  var mnd1:MultivariateNormalDistribution = new MultivariateNormalDistribution(mu1, cov_mat1)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/pca.scala:40:12: not found: type MultivariateNormalDistribution[0m
+[0m[[0m[31merror[0m] [0m[0m  var mnd2:MultivariateNormalDistribution = new MultivariateNormalDistribution(mu2, cov_mat2)[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/pca.scala:40:49: not found: type MultivariateNormalDistribution[0m
+[0m[[0m[31merror[0m] [0m[0m  var mnd2:MultivariateNormalDistribution = new MultivariateNormalDistribution(mu2, cov_mat2)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/pca.scala:45:46: Nothing does not take parameters[0m
+[0m[[0m[31merror[0m] [0m[0m    println(a+", "+b+": " + class2_samples(a)(b))[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m7 errors found[0m
