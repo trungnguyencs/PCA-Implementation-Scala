@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/PCA-Breeze/src/main/scala/Main.scala:1:8: not found: object breeze[0m
+[0m[[0m[31merror[0m] [0m[0mimport breeze.linalg._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/PCA-Breeze/src/main/scala/Main.scala:2:8: not found: object breeze[0m
+[0m[[0m[31merror[0m] [0m[0mimport breeze.numerics._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
