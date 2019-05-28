@@ -9,7 +9,7 @@ object Main extends App {
   // Generate data input
   val dim = 4
   val total_class = 2
-  val total_sample = 16  
+  val total_sample = 100  
   val reduce_dim = 2
 
   var data = DenseMatrix.zeros[Double](total_sample*total_class, dim)	
@@ -59,6 +59,9 @@ object Main extends App {
   }
   println(s"\nNew eigen matrix:\n${new_eig_mat}")
 
+  // Project all samples to the new subspace:
+  val proj_data = data*new_eig_mat
+  println(s"\nProjected data shape: ${proj_data.rows} rows, ${proj_data.cols} columns")
 }
 
 
