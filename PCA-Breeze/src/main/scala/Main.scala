@@ -22,21 +22,43 @@ object Main extends App {
       data(j+i*total_sample, ::) := distr.sample().t
     }
   }  
+
+  println(s"\nNumber of classes: ${total_class}")
+  println(s"Number of samples in each class: ${total_sample}")
+  println(s"Number of dimmensions: ${dim}")
+  println(s"Number of reduced dimmensions: ${reduce_dim}")
+  println(s"All data shape: ${data.rows} rows, ${data.cols} columns")
   
   // Geting the mean vector
   val mean_vec = mean(data(::, *)) 
+
+  println(s"\nMean vector:\n${mean_vec}")
 
   // Computing the Scatter Matrix
   var scatter_mat = DenseMatrix.zeros[Double](dim, dim)	
   for (i <- 0 until total_sample) {
     scatter_mat += (data(i,::) - mean_vec).t*(data(i,::) - mean_vec)
   }
-  // println(scatter_mat)
+  println(s"\nScatter matrix:\n${scatter_mat}")
 
+  // Computing the Eigenvalues and Eigenvectors
   val es = eigSym(scatter_mat)
   val eig_val = es.eigenvalues
   val eig_mat = es.eigenvectors
-  println(eig_val)
-  println(eig_mat)
+  println(s"\nEigen values:\n${eig_val}")
+  println(s"\nEigen matrix:\n${eig_mat}")
+
+  // Sort the Eigenvalues in decreasing order
+  val keep_idx = argtopk(abs(eig_val), dim-reduce_dim)
+  println(s"\nKeep indexes:\n${keep_idx}")
+
+  // Reduce (reduce_dim) dimensions: Take only (dim-reduce_dim) scatter vectors to put in the new eigen matrix
+  var new_eig_mat = DenseMatrix.zeros[Double](dim, dim-reduce_dim)	
+  for (i <- 0 until keep_idx.length) {
+    new_eig_mat(::, i) := eig_mat(::, keep_idx(i))
+  }
+  println(s"\nNew eigen matrix:\n${new_eig_mat}")
+
 }
+
 
