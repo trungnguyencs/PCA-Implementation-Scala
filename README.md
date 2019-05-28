@@ -12,7 +12,9 @@ An implementation of PCA algorithm from scratch in Scala Breeze and Python numpy
 
 ### Run the program:
 `cd` to `PCA-Breeze`
+
 `sbt` 
+
 `run`
 
 ### Screenshot:
