@@ -1,7 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/PCA-Breeze/src/main/scala/Main.scala:11:20: not found: type MultivariateGaussian[0m
-[0m[[0m[31merror[0m] [0m[0m  var mulval = new MultivariateGaussian(mean_vec, cov_mat)[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/PCA-Breeze/src/main/scala/Main.scala:13:9: not found: value MultivariateGaussian[0m
-[0m[[0m[31merror[0m] [0m[0m  print(MultivariateGaussian(mean_vec, cov_mat))[0m
-[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/PCA-Breeze/src/main/scala/Main.scala:24:16: identifier expected but integer literal found.[0m
+[0m[[0m[31merror[0m] [0m[0m  println(data[0].size)[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/PCA-Breeze/src/main/scala/Main.scala:26:1: ']' expected but '}' found.[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
 [0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
