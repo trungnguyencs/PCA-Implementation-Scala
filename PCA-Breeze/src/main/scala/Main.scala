@@ -23,9 +23,9 @@ object Main extends App {
     }
   }  
 
-  println(s"\nNumber of classes: ${total_class}")
-  println(s"Number of samples in each class: ${total_sample}")
   println(s"Number of dimmensions: ${dim}")
+  println(s"Number of samples in each class: ${total_sample}")
+  println(s"\nNumber of classes: ${total_class}")
   println(s"Number of reduced dimmensions: ${reduce_dim}")
   println(s"All data shape: ${data.rows} rows, ${data.cols} columns")
   
