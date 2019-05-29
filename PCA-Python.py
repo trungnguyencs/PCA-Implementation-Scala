@@ -13,6 +13,7 @@ if __name__ == '__main__':
     fname = '4_100_2_2.csv'
     data_stack = pd.read_csv(fname, header = None)
     data_stack = data_stack.values
+    data_time = time.time()
 
     dim = int(fname.split('.')[0].split('_')[0])
     total_sample = int(fname.split('.')[0].split('_')[1])
@@ -54,7 +55,8 @@ if __name__ == '__main__':
     proj_data = new_eig_mat.dot(data_stack)
     print('Projected data shape:\n' + str(proj_data.shape[1]) + ' rows, ' + str(proj_data.shape[0]) + ' columns')
 
-print("--- Runtime: %s seconds ---" % (time.time() - start_time))
-print("--- Memory usage: %s Mbytes ---" % (process.memory_info().rss/1000000.0))  
+print("--- Load data runtime: %.4f miliseconds ---" % ((data_time - start_time)*1000.0))
+print("--- Total runtime: %.4f miliseconds ---" % ((time.time() - start_time)*1000.0))
+print("--- Memory usage: %.4f Mbytes ---" % (process.memory_info().rss/1000000.0))  
 
 
