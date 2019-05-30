@@ -10,15 +10,15 @@ if __name__ == '__main__':
     import numpy as np
     import pandas as pd
 
-    fname = '4_100_2_2.csv'
-    data_stack = pd.read_csv(fname, header = None)
+    fname = '4_100_2_2'
+    data_stack = pd.read_csv('./data/' + fname + '.csv', header = None)
     data_stack = data_stack.values
     data_time = time.time()
 
-    dim = int(fname.split('.')[0].split('_')[0])
-    total_sample = int(fname.split('.')[0].split('_')[1])
-    total_class = int(fname.split('.')[0].split('_')[2])
-    reduce_dim = int(fname.split('.')[0].split('_')[3])
+    dim = int(fname.split('_')[0])
+    total_sample = int(fname.split('_')[1])
+    total_class = int(fname.split('_')[2])
+    reduce_dim = int(fname.split('_')[3])
 
     print('Number of dimmensions: ' + str(dim))
     print('Number of samples in each class: ' + str(total_sample))
@@ -55,8 +55,8 @@ if __name__ == '__main__':
     proj_data = new_eig_mat.dot(data_stack)
     print('Projected data shape:\n' + str(proj_data.shape[1]) + ' rows, ' + str(proj_data.shape[0]) + ' columns')
 
-print("--- Load data runtime: %.4f miliseconds ---" % ((data_time - start_time)*1000.0))
-print("--- Total runtime: %.4f miliseconds ---" % ((time.time() - start_time)*1000.0))
-print("--- Memory usage: %.4f Mbytes ---" % (process.memory_info().rss/1000000.0))  
+print("\n--- Load data runtime: %.4f miliseconds ---" % ((data_time - start_time)*1024.0))
+print("--- Total runtime: %.4f miliseconds ---" % ((time.time() - start_time)*1024.0))
+print("--- Memory usage: %.4f Mbytes ---\n" % (process.memory_info().rss/(1024.0*1024.0)))  
 
 

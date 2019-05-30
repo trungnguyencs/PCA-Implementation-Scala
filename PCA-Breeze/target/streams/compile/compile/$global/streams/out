@@ -1,4 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/trungnguyen/Documents/PCA-Implementation-Scala/PCA-Breeze/src/main/scala/Main.scala:31:57: value columns is not a member of breeze.linalg.DenseMatrix[Double][0m
-[0m[[0m[31merror[0m] [0m[0m  println(s"\nAll data shape: ${data.rows} rows, ${data.columns} rows\n")[0m
-[0m[[0m[31merror[0m] [0m[0m                                                        ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
