@@ -13,9 +13,7 @@ An implementation of PCA algorithm from scratch in Scala Breeze and Python numpy
 ### Run the program:
 `cd` to `PCA-Breeze`
 
-`sbt` 
-
-`run`
+`sbt run` 
 
 ### Screenshot:
 ![alt text](https://github.com/trungnguyencs/PCA-Implementation-Scala/blob/master/git_img/run.png "Screenshot")
