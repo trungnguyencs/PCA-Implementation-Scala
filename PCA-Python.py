@@ -1,14 +1,12 @@
 import os
 import psutil
 import time
-
-start_time = time.time()
-process = psutil.Process(os.getpid())
+import numpy as np
+import pandas as pd
 
 if __name__ == '__main__':
-    
-    import numpy as np
-    import pandas as pd
+    start_time = time.time()
+    process = psutil.Process(os.getpid())
 
     fname = '4_100_2_2'
     data_stack = pd.read_csv('./data/' + fname + '.csv', header = None)
