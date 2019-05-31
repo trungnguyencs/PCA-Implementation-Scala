@@ -5,46 +5,74 @@ import numpy as np
 import pandas as pd
 import glob
 
-if __name__ == '__main__':
-    outp_name = 'output_python.csv'
+def clean_output(outp_name):
     if os.path.exists(outp_name):
       os.remove(outp_name)
 
+def trim_file_name(f_name):
+    f_name = f_name.split('.')[1].split('/')[-1]
+    print(f_name)
+    return f_name
+
+def extract_file_name(f_name):
+    dim = int(f_name.split('_')[0])
+    total_sample = int(f_name.split('_')[1])
+    total_class = int(f_name.split('_')[2])
+    reduce_dim = int(f_name.split('_')[3])
+    return dim, total_sample, total_class, reduce_dim
+
+def read_csv(f_name):
+    data_stack = pd.read_csv('./data/' + f_name + '.csv', header = None)
+    return data_stack.values
+
+def compute_mean_vector(data_stack):
+    """
+    Geting the mean vector from the whole dataset
+    """
+    return np.average(data_stack, axis=1)
+
+def compute_scatter_matrix(data_stack):
+    """
+    Computing the Scatter Matrix from the whole dataset
+    """
+    scatter_mat = np.zeros((dim,dim))
+    for i in range(dim):
+        scatter_mat += (data_stack[:,i].reshape(dim,1) - mean_vec).dot((data_stack[:,i].reshape(dim,1) - mean_vec).T)
+    return scatter_mat
+
+if __name__ == '__main__':
+
+    outp_name = 'output_python.csv'
+    clean_output(outp_name)
+
     f_list = glob.glob(os.path.join('./data', '*.csv'))
+    
     cols = ['dim', 'total_sample', 'total_class', 'reduce_dim',\
      'load_data_runtime', 'total_runtime', 'memory_usage']
     output = pd.DataFrame(columns=cols)
 
     for f_name in f_list:
-        f_name = f_name.split('.')[1].split('/')[-1]
-        print(f_name)
-
         start_time = time.time()
         process = psutil.Process(os.getpid()) 
 
-        data_stack = pd.read_csv('./data/' + f_name + '.csv', header = None)
-        data_stack = data_stack.values
-        data_time = time.time()
-
-        dim = int(f_name.split('_')[0])
-        total_sample = int(f_name.split('_')[1])
-        total_class = int(f_name.split('_')[2])
-        reduce_dim = int(f_name.split('_')[3])
-
+        f_name = trim_file_name(f_name)
+        dim, total_sample, total_class, reduce_dim = extract_file_name(f_name)
         print('Number of dimmensions: ' + str(dim))
         print('Number of samples in each class: ' + str(total_sample))
         print('Number of classes: ' + str(total_class))
         print('Number of reduced dimmensions: ' + str(reduce_dim))
+
+        data_stack = read_csv(f_name)
         print('All data shape: ' + str(data_stack.shape[1]) + ' rows, ' + str(data_stack.shape[0]) + ' columns')
 
+        data_time = time.time()
+        
         # Geting the mean vector
-        mean_vec = np.average(data_stack, axis=1)
+        mean_vec = compute_mean_vector(data_stack)
         print('Mean vector:\n' + str(mean_vec))
 
         # Computing the Scatter Matrix
-        scatter_mat = np.zeros((dim,dim))
-        for i in range(dim):
-            scatter_mat += (data_stack[:,i].reshape(dim,1) - mean_vec).dot((data_stack[:,i].reshape(dim,1) - mean_vec).T)
+        scatter_mat = compute_scatter_matrix(data_stack)
         print('Scatter Matrix:\n' + str(scatter_mat))
 
         # Computing the Eigenvalues and Eigenvectors
