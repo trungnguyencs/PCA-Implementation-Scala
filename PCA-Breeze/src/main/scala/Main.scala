@@ -12,6 +12,12 @@ object Main extends App {
 
   val path = "../data/"
 
+  /** Provides a service as described.
+   *
+   *  This is further documentation of what we're documenting.
+   *  Here are more details about how it works and what it does.
+   */
+
   // Read file
   def getListOfFiles(dir: String): List[String] = {
     val file = new File(dir)
@@ -19,6 +25,9 @@ object Main extends App {
       .filter(_.getName.endsWith("csv"))
       .map(_.getPath).toList
   }
+
+
+
 
   // Trim name
   val f_list = getListOfFiles(path)
