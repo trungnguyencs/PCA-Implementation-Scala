@@ -43,7 +43,7 @@ def compute_mean_vector(data_stack):
     """
     return np.average(data_stack, axis=1)
 
-def compute_scatter_matrix(data_stack):
+def compute_scatter_matrix(data_stack, mean_vec, dim):
     """
     Computing the Scatter Matrix from the whole dataset
     """
@@ -77,7 +77,6 @@ def project_data(new_eig_mat, data_stack):
 
 
 if __name__ == '__main__':
-
     outp_name = 'output_python.csv'
     clean_output(outp_name)
 
@@ -88,7 +87,7 @@ if __name__ == '__main__':
     output = pd.DataFrame(columns=cols)
 
     for f_name in f_list:
-        # Set the time time stamp and process id for memory measurement
+        # Get the time stamp and process id for memory measurement
         start_time = time.time()
         process = psutil.Process(os.getpid()) 
 
@@ -112,7 +111,7 @@ if __name__ == '__main__':
         print('Mean vector:\n' + str(mean_vec))
 
         # Computing the scatter matrix
-        scatter_mat = compute_scatter_matrix(data_stack)
+        scatter_mat = compute_scatter_matrix(data_stack, mean_vec, dim)
         print('Scatter Matrix:\n' + str(scatter_mat))
 
         # Computing the eigenvalues and eigenvectors
