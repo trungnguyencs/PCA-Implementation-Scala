@@ -11,7 +11,7 @@ An implementation of PCA algorithm from scratch in Scala Breeze and Python numpy
 * Use this d\*k eigenvector matrix to transform the samples onto the new subspace
 
 ### Run the program:
-`cd` to `PCA-Breeze`
+`cd` to `PCA-Scala`
 
 `sbt run` 
 
