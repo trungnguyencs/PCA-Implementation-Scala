@@ -10,6 +10,9 @@ An implementation of PCA algorithm from scratch in Scala Breeze and Python numpy
 * Sort the eigenvectors by decreasing eigenvalues and choose k eigenvectors with the largest eigenvalues to form a d\*k dimensional matrix W (where every column represents an eigenvector)
 * Use this d\*k eigenvector matrix to transform the samples onto the new subspace
 
+### Install sbt:
+`brew install sbt`
+
 ### Run the program:
 `cd` to `PCA-Scala`
 
